@@ -64,10 +64,8 @@ void setup()
 
 void loop()
 {
+  esp_sleep_enable_timer_wakeup(5000000);
   // Effectuer une mesure toutes les 5s
-
-  // Delay between measurements.
-  delay(5000);
   // Get temperature event and print its value.
   sensors_event_t event;
   dht.temperature().getEvent(&event);
@@ -93,7 +91,8 @@ void loop()
     Serial.print(event.relative_humidity);
     Serial.println(F("%"));
   }
-
+  esp_deep_sleep_start();
+  delay(5000);
   // Afficher l'humidité relative avec un peu de formatage
 
   // Afficher la température avec un peu de formatage
