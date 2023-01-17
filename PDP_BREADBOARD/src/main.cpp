@@ -9,6 +9,7 @@
 #define DHTTYPE DHT11
 
 DHT_Unified dht(DHTPIN, DHTTYPE);
+// Hello
 uint32_t delayMS;
 
 void setup()
